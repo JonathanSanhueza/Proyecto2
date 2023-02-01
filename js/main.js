@@ -1,3 +1,27 @@
+function createTask (title, description) {
+    console.log("creando...")
+    
+    const inputName = document.getElementById("input-name").value
+    console.log(inputName)
+
+    const inputCount = document.getElementById("input-count").value
+    console.log(inputCount)
+
+    const item = {
+        name: inputName,
+        count: inputCount       
+    }
+
+    if (localStorage.getItem("items") == null) {
+        localStorage.setItem("items", "[]")
+    }
+
+    const itemsString = localStorage.getItem("items")
+    const items = JSON.parse(itemsString)
+    items.push(item)
+    localStorage.setItem ("items",JSON.stringify(items))
+    readTasks ()
+}
 
 function readTasks ()  {
 
