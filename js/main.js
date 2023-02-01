@@ -26,3 +26,14 @@ function readTasks ()  {
     itemsList.innerHTML = itemsListChild
 }
 
+
+function deleteTask (index) {
+    const itemsString = localStorage.getItem("items")
+    const items = JSON.parse(itemsString)
+    items.splice(index,1)
+    const updatedItemsString=JSON.stringify(items)
+
+    localStorage.setItem("items", updatedItemsString)
+    readTasks()
+    console.log("borrando...", index) 
+}
