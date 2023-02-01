@@ -1,3 +1,5 @@
+let indexToEdit
+
 function createTask (title, description) {
     console.log("creando...")
     
@@ -50,13 +52,41 @@ function readTasks ()  {
     itemsList.innerHTML = itemsListChild
 }
 
+function updateTask (index) {
+    const itemsString = localStorage.getItem("items")
+    const items = JSON.parse(itemsString)
+    const item = items[index]
+    document.getElementById("input-edit-name").value = item.name
+    document.getElementById("input-edit-count").value = item.count
+    indexToEdit = index
+}
+
+
+function saveTask () {
+    const itemsString = localStorage.getItem("items")
+    const items = JSON.parse(itemsString)
+
+    const inputName = document.getElementById("input-edit-name").value
+    const inputCount = document.getElementById("input-edit-count").value
+    
+    const item = {
+        name: inputName,
+        count: inputCount       
+    }
+
+    items[indexToEdit] = item
+    updatedItemsString = JSON.stringify(items)
+    localStorage.setItem("items", updatedItemsString)
+    readTasks()
+    console.log("actualizando...", indexToEdit)
+}
 
 function deleteTask (index) {
     const itemsString = localStorage.getItem("items")
     const items = JSON.parse(itemsString)
     items.splice(index,1)
     const updatedItemsString=JSON.stringify(items)
-
+    
     localStorage.setItem("items", updatedItemsString)
     readTasks()
     console.log("borrando...", index) 

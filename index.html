@@ -9,6 +9,28 @@
     <title>Proyecto 2 UDD Crud</title>
 </head>
 <body onload="readTasks()">
+    <div class="modal" tabindex="-1" id="edit-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edicion de Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form class="pa-2">
+            <div class="card-body">
+              <label for="input-name" class="form-label">Item</label>
+              <input id="input-edit-name" type="text" required minlength="1" minlength="200" class="form-control" placeholder="Tallarines" aria-label="Item" aria-describedby="basic-addon1">
+              <label for="input-count" class="form-label">Cantidad</label>
+              <input id="input-edit-count" type="number" class="form-control" placeholder="3" aria-label="Cantidad" aria-describedby="basic-addon1">
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="edit-button" type="button" class="btn btn-outline-primary" onclick="saveTask()">Editar</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="main-container mb-4">
       <div class="container-crud">
         <header>
