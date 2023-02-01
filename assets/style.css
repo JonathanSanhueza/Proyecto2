@@ -1,0 +1,38 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+.container-crud {
+    width: 700px;
+    justify-content: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-image: url(background.jpg);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: white;
+        background-image: none;
+    }
+}
+
+footer {
+    display: inline;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.item-detail {
+    max-width: 400px;
+}
